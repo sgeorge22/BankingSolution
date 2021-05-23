@@ -14,7 +14,7 @@ namespace Banking
         public string Description { get; set; }
 
         //Below is the methods
-        public bool Deposit(decimal amount)
+        public virtual bool Deposit(decimal amount)
         { // now we are in the deposit method 
             if (amount <= 0) // boolean to check first that the return wont produce a false
             {
@@ -25,7 +25,7 @@ namespace Banking
             return true;
 
         }
-        public bool Withdraw(decimal amount)
+        public virtual bool Withdraw(decimal amount)
         {// we are now in the withdraw method
             if (amount <= 0) // boolean to check first that the return wont produce a false
             {

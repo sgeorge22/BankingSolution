@@ -7,6 +7,16 @@ namespace Banking
     class Savings2 : IBank
     {
         private Account account = new Account();
+
+        public string AccountNumber { get 
+            {
+                return account.AccountNumber;               //Dont have to put set is you dont want it to set anything, can also add code
+            } 
+            set
+            {
+
+            }
+        } 
         public decimal InterestRate { get; internal set; } = 0.01m;
         public decimal CalculateInterestByMonths(int NumberOfMonths)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Banking.Exceptions;
+using System;
 
 namespace Banking
 {
@@ -6,15 +7,15 @@ namespace Banking
     {
         static void Main(string[] args)
         {
-            var sv1 = new Savings2();
-            sv1.Deposit(2000);
-            var cd10 = new CertOfDeposit2(5000, 60);
+           // var sv1 = new Savings2();
+            //sv1.Deposit(2000);
+            //var cd10 = new CertOfDeposit2(5000, 60);
 
-            var accounts = new IBank[]{sv1, cd10};
-            foreach(var acct in accounts)
-            {
-                Console.WriteLine($"Account balance is {acct.GetBalance()}.");
-            }
+            //var accounts = new IBank[]{sv1, cd10};
+            //foreach(var acct in accounts)
+            //{
+              //  Console.WriteLine($"Account balance is {acct.GetBalance()}.");
+            //}
 
 
             //var sav1 = new Savings();
@@ -42,13 +43,31 @@ namespace Banking
             //acc1.Transfer(1000, acc2);
             //Console.WriteLine($"Balance is {acc2.Balance}.");
 
+            var acc3 = new Account();
+            acc3.Deposit(100);
+            try
+            {
+                acc3.Withdraw(500);
+            } catch(InsufficientFundsException ex)
+            {
+
+                
+            } catch(DivideByZeroException ex)
+            {
+                throw; // use just throw to bypass the caught exception
+
+            } catch(Exception ex)
+            {
+
+            }
+
+            
 
 
+            //var CD1 = new CertificateOfDeposit(24);
 
-            var CD1 = new CertificateOfDeposit(24);
-
-            CD1.Deposit(5000);
-            CD1.Withdraw(5000);
+           // CD1.Deposit(5000);
+           //CD1.Withdraw(5000);
 
         }
 

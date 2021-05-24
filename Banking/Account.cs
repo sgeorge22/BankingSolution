@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Banking.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,8 +19,8 @@ namespace Banking
         { // now we are in the deposit method 
             if (amount <= 0) // boolean to check first that the return wont produce a false
             {
-                Console.WriteLine($"Amount must be greater than 0.");
-                return false;
+                throw new InvalidParameterException(amount);
+                
             }
             Balance = Balance + amount; // Balance + amount will return the value to the left side of the =
             return true;
@@ -29,13 +30,13 @@ namespace Banking
         {// we are now in the withdraw method
             if (amount <= 0) // boolean to check first that the return wont produce a false
             {
-                Console.WriteLine($"Amount must be greater than 0.");
-                return false;
+                throw new InvalidParameterException(amount);
             }
             if (amount > Balance)
             {
-                Console.WriteLine($"Insufficient funds.");
-                return false;
+                throw new InsufficientFundsException(amount, Balance);
+                
+                
             }
             
             Balance = Balance - amount;

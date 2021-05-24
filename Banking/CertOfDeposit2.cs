@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Banking                  //Example of composition 
 {
-    class CertOfDeposit2
+    class CertOfDeposit2 : IBank
     {
         private Account account = new Account();
         // private Account account = null;
@@ -19,6 +19,16 @@ namespace Banking                  //Example of composition
                 return false;
             }
             return account.Withdraw(account.Balance);
+        }
+
+        public decimal GetBalance()
+        {
+            return account.Balance;
+        }
+
+        public string GetAccountNumber()
+        {
+            return account.AccountNumber;
         }
 
         public CertOfDeposit2( decimal Amount, int Months)

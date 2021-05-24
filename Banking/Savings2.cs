@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Banking
 { // Composition example - Showing how to call on info from another class with out inhereting it
-    class Savings2
+    class Savings2 : IBank
     {
         private Account account = new Account();
         public decimal InterestRate { get; internal set; } = 0.01m;
@@ -32,6 +32,17 @@ namespace Banking
         {
             return account.Transfer(amount, toAccount);
         }
+
+        public decimal GetBalance()
+        {
+            return account.Balance;
+        }
+
+        public string GetAccountNumber()
+        {
+            return account.AccountNumber;
+        }
+
         //Have to create the below constructor to allow this to run
         public Savings2()
         {

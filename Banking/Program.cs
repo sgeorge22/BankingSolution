@@ -11,7 +11,10 @@ namespace Banking
             //sav1.InterestRate = 0.12m;
             //sav1.PayInterest(3);
 
-            
+            var cd2 = new CertOfDeposit2(Amount: 1000, int 24);
+            cd2.Deposit(1);
+            cd2.Withdraw(1);
+            cd2.WithdrawDate = DateTime.Now 
 
 
 

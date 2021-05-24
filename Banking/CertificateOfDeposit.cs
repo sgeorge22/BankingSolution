@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Banking
+namespace Banking             //Example of inheritance 
 {
     class CertificateOfDeposit : Account
     {
